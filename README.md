@@ -34,4 +34,4 @@ Omic data analysis is receiveing lot ot attention not only in genomic or genetic
 
 ## Data
 
-Data for reproducing the slides (folder 'data') and doing the exercises (folder 'data_exercises') can be found [here](https://drive.google.com/file/d/0B9z3DpVIA7h6YnV6SFptN05YcVU/view?usp=sharing). 
+Data for reproducing the slides (folder 'data') and doing the exercises (folder 'data_exercises') can be found [here](https://drive.google.com/file/d/0B9z3DpVIA7h6WEx0Q3Jkd00tYm8/view?usp=sharing). 
