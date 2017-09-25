@@ -1,30 +1,3 @@
-## ----plot_pca_1,  echo=FALSE---------------------------------------------
-set.seed(12345)
-y <- rnorm(45, 4, 1)
-x <- 2 * y + rnorm(45)
-cc <- rep("black", 45)
-cc[x>10] <- "red"
-cc[c(4,9)] <- "red"
-plot(x,y, cex.lab=1.4, cex.axis = 1.3, xlab="GATA3", ylab="XPBD1")
-points(x,y, pch=16, col=cc, cex=1.3)
-
-## ----plot_pca_2, echo=FALSE----------------------------------------------
-plot(x,y, cex.lab=1.4, cex.axis = 1.3, xlab="GATA3", ylab="XPBD1")
-points(x,y, pch=16, col=cc, cex=1.3)
-abline(lm(y~x), col="darkgreen", lwd=2)
-arrows(6.5, 2.5, 6.5, 3.2, length=0.15, col="darkgreen")
-text(6.5, 2.3, "First PCA", col="darkgreen")
-
-## ----plot_pca_3, echo=FALSE----------------------------------------------
-plot(x,y, cex.lab=1.4, cex.axis = 1.3, xlab="GATA3", ylab="XPBD1")
-points(x,y, pch=16, col=cc, cex=1.3)
-abline(lm(y~x), col="darkgreen", lwd=2)
-arrows(6.5, 2.5, 6.5, 3.2, length=0.15, col="darkgreen")
-text(6.5, 2.3, "First PCA", col="darkgreen")
-segments(10, 3.4, 7.6, 5.0, col="darkgreen")
-arrows(11.7, 3.6, 10, 3.6, length=0.15, col="darkgreen")
-text(12.0, 3.6, "Second PCA", adj=0, col="darkgreen")
-
 ## ----data----------------------------------------------------------------
 require(graphics)
 data(USArrests)
@@ -78,6 +51,9 @@ rnaseq.s.imp <- impute.knn(rnaseq.s, rowmax = 0.5,
 out <- ord(rnaseq.s.imp, trans=FALSE, type="pca", classvec=group)
 plot(out, nlab=3, arraylabels=rep("T", 79))
 
+## ----var_exp-------------------------------------------------------------
+summary(out$ord)
+
 ## ----boot, fig.show='hide'-----------------------------------------------
 library(nFactors)
 ev <- eigen(cor(USArrests)) # get eigenvalues
@@ -87,7 +63,7 @@ nS <- nScree(x=ev$values, aparallel=ap$eigen$qevpea)
 plotnScree(nS) 
 
 ## ----lcpm----------------------------------------------------------------
-library(LPCM)
+require(LPCM)
 data(gaia)
 dim(gaia)
 names(gaia)
@@ -97,12 +73,12 @@ names(gaia)
  plot(lpc1, curvecol="red", lwd=3)
 
 ## ----lcpmPlot2-----------------------------------------------------------
-library(scatterplot3d)
+require(scatterplot3d)
 lpc2 <- lpc(gaia[,7:9])
 plot(lpc2, curvecol=2, type=c("curve","mass"))
 
 ## ------------------------------------------------------------------------
-dd <- read.delim("http://www.stat.berkeley.edu/classes/s133/data/cars.tab")
+dd <- read.delim("data/cars.tab")
 head(dd)
 
 ## ----norm----------------------------------------------------------------
@@ -134,10 +110,9 @@ dd$Car[groups3.hclust==1]
 sapply(unique(groups3.hclust), function (x) dd$Car[groups3.hclust==x])
 
 ## ----hclustCol-----------------------------------------------------------
-library(dendextend)
 dend <- as.dendrogram(dd.hclust)
-dend2 <- color_labels(dend, k=3)
-labels(dend2) <- dd$Car
+dend2 <- dendextend::color_labels(dend, k=3)
+dendextend::labels(dend2) <- dd$Car
 plot(dend2)
 
 ## ----pam-----------------------------------------------------------------
@@ -158,7 +133,7 @@ plot(dd.pam)
 plot(silhouette(cutree(dd.hclust,4), dd.dist))
 
 ## ----mclust--------------------------------------------------------------
-library(mclust)
+require(mclust)
 dd.mclust <- Mclust(dd.ok)
 summary(dd.mclust)
 
@@ -171,7 +146,7 @@ mclust2Dplot(dd.ok[,1:2], parameters=dd.mclust$parameters,
              z=dd.mclust$z, what = "classification")
 
 ## ----selectK-------------------------------------------------------------
-library(vegan)
+require(vegan)
 k.cal <- cascadeKM(dd.ok, inf.gr=2, sup.gr=6, criterion="calinski")
 k.ssi <- cascadeKM(dd.ok, inf.gr=2, sup.gr=6, criterion="ssi")
 
@@ -182,17 +157,17 @@ plot(k.cal)
 plot(k.ssi)
 
 ## ----plotTest------------------------------------------------------------
-library(sigclust)
+require(sigclust)
 mod.sig <-sigclust(dd.ok, nsim=1000)
-plot(mod.sig)
+plot(mod.sig, arg="pvalue")
 
 ## ----validation----------------------------------------------------------
-library(clValid)
+require(clValid)
 val.intern <- clValid(dd.ok, 2:6, clMethods = c("hierarchical",
  "kmeans", "diana", "pam",  "model"), validation = "internal")
 optimalScores(val.intern)
 
 ## ----big-----------------------------------------------------------------
-library(fastcluster)
+require(fastcluster)
 hclust.fast <- hclust(dd.dist)
 
