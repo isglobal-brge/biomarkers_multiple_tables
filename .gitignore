@@ -12,6 +12,7 @@
 */*.sty
 */*.out
 */*.aux
+*/*.log
 
 */cache
 */*cache
