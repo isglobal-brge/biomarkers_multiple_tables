@@ -100,7 +100,7 @@ dd.hclust <- hclust(dd.dist)
 plot(dd.hclust, labels=dd$Car, main="")
 
 ## ----hclustCut-----------------------------------------------------------
-groups3.hclust <- cutree(dd.hclust, 3)
+groups3.hclust <- as.factor(cutree(dd.hclust, 3))
 table(groups3.hclust)
 
 ## ----hclustGroup---------------------------------------------------------
@@ -119,8 +119,8 @@ plot(dend2)
 require(cluster)
 dd.pam <- pam(dd.dist, 3)
 dd.kmeans <- kmeans(dd.dist, 3)
-groups3.pam <- dd.pam$clustering
-groups3.kmeans <-  dd.kmeans$cluster
+groups3.pam <- as.factor(dd.pam$clustering)
+groups3.kmeans <-  as.factor(dd.kmeans$cluster)
 
 ## ----comparison----------------------------------------------------------
 table(groups3.pam, groups3.hclust)

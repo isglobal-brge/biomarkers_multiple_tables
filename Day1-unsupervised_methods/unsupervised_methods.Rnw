@@ -657,7 +657,7 @@ One may be interested in knowing how many samples/features are in each group tha
 a given height along the y-axis.  
 
 <<hclustCut>>=
-groups3.hclust <- cutree(dd.hclust, 3)
+groups3.hclust <- as.factor(cutree(dd.hclust, 3))
 table(groups3.hclust)
 @
 \end{frame}
@@ -694,8 +694,8 @@ plot(dend2)
 require(cluster)
 dd.pam <- pam(dd.dist, 3)
 dd.kmeans <- kmeans(dd.dist, 3)
-groups3.pam <- dd.pam$clustering
-groups3.kmeans <-  dd.kmeans$cluster
+groups3.pam <- as.factor(dd.pam$clustering)
+groups3.kmeans <-  as.factor(dd.kmeans$cluster)
 @
 
 \end{frame}
