@@ -35,3 +35,7 @@ Omic data analysis is receiveing lot ot attention not only in genomic or genetic
 ## Data
 
 Data for reproducing the slides (folder 'data') and doing the exercises (folder 'data_exercises') can be found [here](https://drive.google.com/file/d/0B9z3DpVIA7h6WEx0Q3Jkd00tYm8/view?usp=sharing). 
+
+## Example PCA and Hierarchical clustering in diet
+
+Have a look at this paper: [A comparison of the dietary patterns derived by principal component analysis and cluster analysis in older Australians](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4772350/)
