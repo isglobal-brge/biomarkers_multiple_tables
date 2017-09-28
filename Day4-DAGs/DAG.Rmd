@@ -9,6 +9,9 @@ Packages can be installed by executing
 
 ```{r install_package, eval=FALSE}
 install.packages(c("abn", "graph", "ggm"))
+source("https://bioconductor.org/biocLite.R")
+biocLite("Rgraphviz")
+```
 
 # Load package
 
@@ -66,8 +69,8 @@ mydag
 The DAG can be easily created using DAG function from ggm package!!!
 
 ```{r dag}
-mydag <- ggm::DAG(Colesterol~casoc+gra_fruit, gra_fruit~casoc)
-mydag
+mydag2 <- ggm::DAG(Colesterol~casoc+gra_procmeat, gra_procmeat~casoc)
+mydag2
 ```
 
 
