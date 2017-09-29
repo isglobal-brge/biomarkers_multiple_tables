@@ -45,7 +45,7 @@ load("c:/Juan/CREAL/GitHub/biomarkers_multiple_tables/data/lusc.Rdata")
 
 Before we start, keep in mind that, as any other regression analysis, mediation 
 analysis does not imply causal relationships unless it is based on experimental design. Solutions to analysing mediation which overcome unmeasured or residual confounding, reverse causation and measurement error include the use of instrumental variable methods, of which Mendelian randomization is a form
-(see this [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5036871/).  
+(see this [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5036871/)).  
 
 The following shows the basic steps for mediation analysis suggested by Baron & Kenny (1986). A mediation analysis is comprised of three sets of regression: X -> Y, X -> M, and X + M -> Y. This can be performed by using any statistical sowfare, even Stata! ;-)
 
