@@ -125,6 +125,8 @@ res <- mediate(model.M, model.Y, treat='LOY', mediator='TTTY15')
 summary(res)
 ```
 
+ADE corresponds to direct effect, while ACME stands for the mediation effect.
+
 To sum up, here's a flowchart for mediation analysis (created by Bommae Kim, 
 University of Virginia Library)
 
