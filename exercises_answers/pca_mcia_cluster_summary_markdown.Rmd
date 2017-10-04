@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, cache=TRUE, message = FALSE)
 
 Let us load the libraries 
 
-```{r load}
+```{r load, results=}
 library(made4)
 library(omicade4)
 library(readstata13)
@@ -26,3 +26,7 @@ library(readstata13)
 ## Run PCA
 
 We are using [made4](http://bioconductor.org/packages/release/bioc/html/made4.html) library
+
+
+![](c:/juan/34BiosketchISGlobal0181.jpg)
+
