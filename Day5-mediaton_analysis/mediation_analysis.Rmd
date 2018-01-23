@@ -1,9 +1,11 @@
 ---
 title: "Introduction to mediation analysis"
 author:
-- name: Juan R Gonzalez
-  affiliation: Bioinformatics Research Group in Epidemiology
-output: html_document
+- affiliation: Bioinformatics Research Group in Epidemiology
+  name: Juan R Gonzalez
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
