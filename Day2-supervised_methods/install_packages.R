@@ -1,9 +1,0 @@
-install.packages(c("pdfCluster",
-"MASS",
-"rpart",
-"e1071",
-"nnet",
-"randomForest",
-"adabag",
-"flexclust",
-"pROC"))
